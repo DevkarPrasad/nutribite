@@ -1,0 +1,71 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}
+	<link rel="stylesheet" type="text/css" href="{% static 'recipe_search.css'%}">
+	<title>Recipe Search</title>
+{% endblock %}
+
+<body>
+	{% block content %}
+
+		{% include 'recipes_search/form.html'%}
+		<h1>Search Results</h1>
+		<hr>
+	
+    <div class="search_container">
+
+		{% for hit in hits %}
+		<div class="col-md-3">
+		<div class="recipe-card">
+			<img class="card-img-top" src="{{ hit.recipe.image }}" alt="{{ hit.recipe.label }}">
+			<div class="card-body">
+			<h5 class="card-title">{{ hit.recipe.label }}</h5>
+			<p class="card-text">{{ hit.recipe.source }}</p>
+			<a href="{{ hit.recipe.url }}" class="btn btn-primary">View Recipe</a>
+			</div>
+		</div>
+		</div>
+		{% endfor %}
+	</div>
+
+		
+
+
+	 <!-- Pagination -->
+	 {% if hits.has_other_pages %}
+	 <nav aria-label="Recipe results pagination">
+	   <ul class="pagination">
+		 {% if hits.has_previous %}
+		   <li class="page-item">
+			 <a class="page-link" href="?page={{ hits.previous_page_number }}{% if query %}&query={{ query }}{% endif %}{% if health %}&health={{ health }}{% endif %}{% if diet %}&diet={{ diet }}{% endif %}{% if cuisine %}&cuisine={{ cuisine }}{% endif %}{% if meal_type %}&meal_type={{ meal_type }}{% endif %}" tabindex="-1" aria-label="Previous">
+			   <span aria-hidden="true">&laquo;</span>
+			   <span class="sr-only">Previous</span>
+			 </a>
+		   </li>
+		 {% endif %}
+		 {% for num in hits.paginator.page_range %}
+		   {% if num == hits.number %}
+			 <li class="page-item active"><a class="page-link" href="#">{{ num }} <span class="sr-only">(current)</span></a></li>
+		   {% elif num > hits.number|add:'-3' and num < hits.number|add:'3' %}
+			 <li class="page-item"><a class="page-link" href="?page={{ num }}{% if query %}&query={{ query }}{% endif %}{% if health %}&health={{ health }}{% endif %}{% if diet %}&diet={{ diet }}{% endif %}{% if cuisine %}&cuisine={{ cuisine }}{% endif %}{% if meal_type %}&meal_type={{ meal_type }}{% endif %}">{{ num }}</a></li>
+		   {% endif %}
+		 {% endfor %}
+		 {% if hits.has_next %}
+		   <li class="page-item">
+			 <a class="page-link" href="?page={{ hits.next_page_number }}{% if query %}&query={{ query }}{% endif %}{% if health %}&health={{ health }}{% endif %}{% if diet %}&diet={{ diet }}{% endif %}{% if cuisine %}&cuisine={{ cuisine }}{% endif %}{% if meal_type %}&meal_type={{ meal_type }}{% endif %}" aria-label="Next">
+			   <span aria-hidden="true">&raquo;</span>
+			   <span class="sr-only">Next</span>
+			 </a>
+		   </li>
+		 {% endif %}
+	   </ul>
+	 </nav>
+   {% endif %}
+
+    </div>
+
+	{% endblock %}
+
+</body>
+</html>

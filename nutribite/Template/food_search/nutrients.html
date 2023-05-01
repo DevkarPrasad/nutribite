@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nutrition Details</title>
+  </head>
+  <body>
+    <h1>Nutrition Details for {{ food_name }}</h1>
+    <h3>Calories: {{ calories }} kcal</h3>
+    <ul>
+      {% for nutrient in nutrients %}
+      <li>{{ nutrient['label'] }}: {{ nutrient['quantity'] }} {{ nutrient['unit'] }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'food_search' %}">Back to Food Search</a>
+  </body>
+</html>

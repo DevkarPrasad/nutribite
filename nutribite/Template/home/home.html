@@ -1,0 +1,57 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block title %}
+  <title>Nutribite</title>
+{% endblock %}
+
+<body>
+  {% block content %}
+  
+
+  <section class="hero">
+      <div class="hero-text">
+        <h1>Taste the Difference with Nutribite!</h1>
+        <p>Your ultimate guide to nutritious food and healthy living. Join us on this journey to a better lifestyle</p>
+        <button><a href="{% url 'login'%}">Get Started</a></button>
+      </div>
+  </section>
+
+  <section class="features">
+    <h2>Our Features</h2>
+    <div class="feature-container">
+      <div class="feature-box">
+        <img src="{% static 'Home.Food_Diary.jpg' %}" alt="Feature 1">
+        <h3>Food Diary</h3>
+        <p>Find the nutrients you need with ease by searching through our extensive food diary.</p>
+      </div>
+      <div class="feature-box">
+        <img src="{% static 'Home.Comparison.jpg' %}" alt="Feature 2">
+        <h3>Food Comparison</h3>
+        <p>Compare the nutritional values of your favorite foods and make informed decisions about your diet with our Food Comparison tool.</p>
+      </div>
+      <div class="feature-box">
+        <img src="{% static 'Home.Recipies.jpg' %}" alt="Feature 3">
+        <h3>Recipies</h3>
+        <p>Our website offers a wide range of delicious and healthy food recipes to suit all tastes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About Us</h2>
+    <p>We are a team of passionate college students who are dedicated to developing solutions for promoting healthy eating habits and a balanced lifestyle. Our team consists of individuals from diverse academic backgrounds, including computer science, web devlopment and we all share a common goal of creating innovative technologies to support a healthier society.</p>
+    <p>Our team understands that the modern lifestyle can often result in unhealthy eating habits and a lack of physical activity, leading to several chronic diseases. We believe that by using our technical expertise and knowledge of nutrition, we can create a platform that provides users with personalized information and tools to make informed decisions about their food choices.</p>
+    <p>Through our platform, we aim to make it easier for people to track their daily food intake, discover healthy and delicious recipes, and compare food products to make informed choices. We are committed to creating an engaging and user-friendly platform that helps individuals adopt a healthier lifestyle and reach their wellness goals.</p>
+    <p>We believe that our team's diverse skills and experiences enable us to develop innovative solutions that can make a real difference in people's lives. Our mission is to use technology to promote healthier living and empower individuals to take control of their health and well-being.</p>
+  </section>
+
+  
+  {% endblock %}
+  <script src="script.js"></script>
+  
+</body>
+</html>
+
+

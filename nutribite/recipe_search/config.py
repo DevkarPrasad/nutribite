@@ -1,0 +1,2 @@
+EDAMAM_APP_ID = 'f460bde3'
+EDAMAM_API_KEY = 'd4aab81ca7372bc4f851e88af8cfebe6'

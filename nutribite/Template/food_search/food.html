@@ -1,0 +1,54 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" type="text/css" href="{% static 'recipe_search.css'%}">
+    <title>Nutribite | Search Results</title>
+{% endblock %}
+
+<body>
+    {% block content %}
+		{% include 'recipes_search/form.html'%}
+    <div class="container">
+        <h1>Search Results</h1>
+        <hr>
+
+
+		<div class="row">
+			{% for food in foods %}
+			  <div class="col-md-3">				
+				<div class="recipe-card">
+					{% if food.image %}
+					<img class="card-img-top" src="{{ food.image }}" alt="{{ food.label }}">
+					{% else %}
+					<img class="card-img-top" src="{%static 'apple.jpg'%}" alt="default_img">
+					{% endif %}
+					<div class="card-body">
+					<h5 class="card-title">{{ food.label }}</h5>
+					<p class="card-text">{{ food.category }}</p>
+
+					{% for measures in food.measures %}
+					<p class="card-text">{{ measures.0.uri }}</p>
+					<p class="card-text">{{ measures.0.label }}</p>
+					{% endfor %}
+
+				</div>
+				</div>
+			</div>
+			{% endfor %}
+		  </div>
+    </div>
+    
+       
+
+        {% endblock %} 
+    </body>
+</html>
+
+
+<form method="POST" action="{% url 'food_nutrients' food_id=food.foodId measure_uri=measures.uri %}">
+	{% csrf_token %}
+	<input type="hidden" name="food" value="{{ food.label }}">
+	<input type="hidden" name="nutrients" value="PROCNT,FAT,CHOCDF,FIBTG">
+	<button type="submit" class="btn btn-primary">View Recipe</button>
+</form>

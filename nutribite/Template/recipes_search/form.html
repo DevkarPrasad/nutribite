@@ -1,0 +1,105 @@
+{%load static%}
+
+<div class="sbox">
+	<form method="post">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="query">Search Here:</label>
+			<input type="text" name="query" id="query" class="form-control">
+		</div>
+
+        <div class="form-group">
+            <label for="health">Health:</label>
+            <select name="health" id="health" class="form-control">
+                <option value="">Select Health Label</option>
+                <option value="alcohol-cocktail">Alcohol-Cocktail</option>
+                <option value="alcohol-free">Alcohol-Free</option>
+                <option value="celery-free">Celery-Free</option>
+                <option value="crustacean-free">Crustacean-Free</option>
+                <option value="dairy-free">Dairy-Free</option>
+                <option value="DASH">DASH</option>
+                <option value="egg-free">Egg-Free</option>
+                <option value="fish-free">Fish-Free</option>
+                <option value="fodmap-free">FODMAP-Free</option>
+                <option value="gluten-free">Gluten-Free</option>
+                <option value="immuno-supportive">Immuno-Supportive</option>
+                <option value="keto-friendly">Keto-Friendly</option>
+                <option value="kidney-friendly">Kidney-Friendly</option>
+                <option value="kosher">Kosher</option>
+                <option value="low-potassium">Low-Potassium</option>
+                <option value="low-sugar">Low Sugar</option>
+                <option value="lupine-free">Lupine-Free</option>
+                <option value="Mediterranean">Mediterranean</option>
+                <option value="mollusk-free">Mollusk-Free</option>
+                <option value="mustard-free">Mustard-Free</option>
+                <option value="No_oil-added">No oil added</option>
+                <option value="paleo">Paleo</option>
+                <option value="peanut-free">Peanut-Free</option>
+                <option value="pecatarian">Pescatarian</option>
+                <option value="pork-free">Pork-Free</option>
+                <option value="red-meat-free">Red-Meat-Free</option>
+                <option value="sesame-free">Sesame-Free</option>
+                <option value="shellfish-free">Shellfish-Free</option>
+                <option value="soy-free">Soy-Free</option>
+                <option value="sugar-conscious">Sugar-Conscious</option>
+                <option value="sulfite-free">Sulfite-Free</option>
+                <option value="tree-nut-free">Tree-Nut-Free</option>
+                <option value="vegan">Vegan</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="wheat-free">Wheat-Free</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="diet">Diet:</label>
+            <select name="diet" id="diet" class="form-control">
+                <option value="">Select Diet Label</option>
+                <option value="balanced">Balanced</option>
+                <option value="high-fiber">High-Fiber</option>
+                <option value="high-protein">High-Protein</option>
+                <option value="low-carb">Low-Carb</option>
+                <option value="low-fat">Low-Fat</option>
+                <option value="low-sodium">Low-Sodium</option>
+            </select>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="meal_type">Meal Type:</label>
+            <select name="meal_type" id="meal_type" class="form-control">
+                <option value="">Select Meal Type</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="brunch">Brunch</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+                <option value="teatime">Teatime</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cuisine">Cuisine:</label>
+            <select name="cuisine" id="cuisine" class="form-control">
+                <option value="">Select Cuisine Type</option>
+                <option value="american">American</option>
+                <option value="asian">Asian</option>
+                <option value="british">British</option>
+                <option value="caribbean">Caribbean</option>
+                <option value="central europe">Central Europe</option>
+                <option value="chinese">Chinese</option>
+                <option value="eastern europe">Eastern Europe</option>
+                <option value="french">French</option>
+                <option value="greek">Greek</option>
+                <option value="indian">Indian</option>
+                <option value="italian">Italian</option>
+                <option value="japanese">Japanese</option>
+                <option value="korean">Korean</option>
+                <option value="kosher">Kosher</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="mexican">Mexican</option>
+                <option value="middle eastern">Middle Eastern</option>
+                <option value="nordic">Nordic</option>
+                <option value="south american">South American</option>
+                <option value="south east asian">South East Asian</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        </div>
+        <hr>
