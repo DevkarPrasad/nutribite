@@ -26,23 +26,24 @@
 					<div class="card-body">
 					<h5 class="card-title">{{ food.label }}</h5>
 					<p class="card-text">{{ food.category }}</p>
+					<p class="card-text"><b>Calories: {{food.nutrients.ENERC_KCAL}}</b></p>
+					<p class="card-text"><b>Fat: {{food.nutrients.FAT}}</b></p>
+					<p class="card-text"><b>Protein: {{food.nutrients.PROCNT}}</b></p>
+					<p class="card-text"><b>Carbs: {{food.nutrients.CHOCDF}}</b></p>
 
-					{% for measures in food.measures %}
-					<p class="card-text">{{ measures.0.uri }}</p>
-					<p class="card-text">{{ measures.0.label }}</p>
-					{% endfor %}
-
-				</div>
+					</div>
 				</div>
 			</div>
 			{% endfor %}
-		  </div>
+
+		</div>
     </div>
-    
+	
        
 
         {% endblock %} 
     </body>
+
 </html>
 
 
