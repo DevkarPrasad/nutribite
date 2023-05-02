@@ -73,7 +73,37 @@ def food_search(request):
     # Render search.html template if request method is not POST
     return render(request, 'food_search/food.html')
 
+    
+'''
+import requests
+from django.shortcuts import render
 
+def nutrients_view(request):
+    if request.method == 'POST':
+        food_id = request.POST['food_id']
+        measure_uri = request.POST['measure_uri']
+        quantity = request.POST['quantity']
+        app_id = config.EDAMAM_APP_ID # replace with your app ID
+        app_key = config.EDAMAM_API_KEY # replace with your app key
+        url = f'https://api.edamam.com/api/food-database/v2/nutrients?app_id={app_id}&app_key={app_key}'
+        payload = {
+            'ingredients': [{
+                'foodId': food_id,
+                'measureURI': measure_uri,
+                'quantity': quantity
+            }]
+        }
+        response = requests.post(url, json=payload)
+        data = response.json()
+        return render(request, 'nutrients_results.html', {'data': data})
+    return render(request, 'nutrients_form.html')
+
+'''
+
+
+
+
+'''
 class NutrientsView(View):
     
     def post(self, request, food_id,measure_uri):
@@ -97,4 +127,4 @@ class NutrientsView(View):
         health_labels = data.get('healthLabels', [])
         
         return render(request, 'food_search/nutrients.html', {'nutrients': nutrients, 'diet_labels': diet_labels, 'health_labels': health_labels})
-
+'''
